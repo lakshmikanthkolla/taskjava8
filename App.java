@@ -1,46 +1,29 @@
-package task4.task4;
+package task4_2.task4_2;
 
 /**
  * Hello world!
  *
  */
-import java.util.function.BiFunction;
-import java.util.*;
-interface Polindrome{
-public static String[] p(String[] s,int i){
-String[] s1=new String[i];
-int j1=0;
-for(int k1=0;k1<i;k1++){
-String t=s[k1];
-String b="";
-int n=t.length();
-for(int l=n-1;l>=0;l--){
-b=b+t.charAt(l);
+import java.util.Scanner;
+public class avg {
+public static void main(String[] args) {
+System.out .println("calculate average of numbers");
+System.out.println("Enter array length");
+Scanner s = new Scanner(System.in);
+int len = s.nextInt();
+int[] ip = new int[len];
+for (int i = 0; i < len; i++) {
+ip[i] = s.nextInt();
 }
-if(t.equalsIgnoreCase(b)){
-s1[j1]=b;
-j1++;
+float avg = average(ip);
+System.out.println(avg);
+ }
+
+public static float average(int[] input) {
+float sum = 0f;
+for (int num : input) {
+sum = sum + num;
 }
+return sum / input.length;
 }
-return s1;
-}
-}
-public class Reference{
-public static void main(String args[]){
-Scanner sc=new Scanner(System.in);
-int h=sc.nextInt();
-int n=h;
-h=h-1;
-String[] s=new String[h+1];
-while(h>=0){
-s[h]=sc.next();
-h--;
-}
-BiFunction<String[],Integer,String[]>adder=Polindrome::p;
-String[] result=adder.apply(s,n);
-for(String l:result){
-if(l!=null){
-System.out.println(l);}
-}
-}
-}
+}  
